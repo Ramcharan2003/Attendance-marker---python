@@ -73,3 +73,16 @@ print(lines)
 with open("Better_dict", "w") as f:
     print(dict(sorted(list(student_copy.items()), key=lambda n: n[0])), file=f)
 input()
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+Guys , I'm a beginner in the python coding world....If there are any mistakes in the code , please resolve and rectify them. 
+I would be very happy to connect with you guys....
+Cheers...!!!
