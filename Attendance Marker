@@ -1,0 +1,75 @@
+import pprint
+import time
+import pyperclip
+from time import ctime
+student_names ={1:  "  ",
+                2:  "  ",
+                3:  "Ramcharan  ",
+                4:  "  ",
+                5:  "  ",
+                6:  "  ",
+                7:  "  ",
+                8:  "  ",
+                9:  "  ",
+                10: "  ",
+                11: "  ",
+                12: "Varshitha  ",
+                13: "  ",
+                14: "  ",
+                15: "  ",
+                16: "  ",
+                17: "  ",
+                18: "  ",
+                19: "  ",
+                20: "  ",
+                21: "  ",
+                22: "  ",
+                23: "Ganesh  ",
+                24: "  ",
+                25: "  ",
+                26: "  ",
+                27: "  ",
+                28: "  ",
+                29: "  ",
+                30: "  ",
+                31: "Pavan  ",
+                32: "  ",
+                33: "  ",
+                34: "  ",
+                35: "Meghana  ",
+                36: "  ",
+                37: "  ",
+                38: "  ",
+                39: "  ",
+                40: "  ",
+                41: "  ",
+                42: "Gayatri "}\
+
+student_copy= student_names.copy()
+name = f"Attendance{time.time()}.txt"
+with open(name, "w") as f:
+    s = pyperclip.paste()
+    print(s, file=f)
+
+with open(name, "r") as file:
+    lines = [i.strip("\n") for i in file.readlines()]
+    check_dict = student_names
+    remove_line = []
+    for line in lines:
+        del_this = 0
+        for key, val in check_dict.items():
+            if val in line:
+                del_this = key
+                student_copy[key] = line
+                break
+        if del_this in check_dict:
+            del check_dict[del_this]
+            remove_line.append(line)
+
+for line in remove_line:
+    lines.remove(line)
+pprint.pprint(check_dict)
+print(lines)
+with open("Better_dict", "w") as f:
+    print(dict(sorted(list(student_copy.items()), key=lambda n: n[0])), file=f)
+input()
